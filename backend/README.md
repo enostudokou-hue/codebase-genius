@@ -1,0 +1,1 @@
+Codebase Genius is an AI-assisted developer tool that automates codebase tasks such as cloning repos, pulling updates, assigning tasks to agents with specific skills, and executing Git operations using a clean Jaseci backend and a lightweight React frontend.
