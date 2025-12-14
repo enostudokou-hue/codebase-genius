@@ -9,13 +9,26 @@ const IssueSchema = new mongoose.Schema({
 
 const analysisSchema = new mongoose.Schema(
   {
-    repoUrl: { type: String, required: true },
-    branch: { type: String, default: "main" },
+    repoUrl: String,
+    branch: String,
     summary: String,
-    issues: [IssueSchema],
+    issues: [
+      {
+        rule: String,
+        severity: String,
+        file: String,
+        line: Number,
+        message: String,
+
+        // 🤖 AI fields
+        explanation: String,
+        fixSuggestion: String,
+      }
+    ]
   },
   { timestamps: true }
 );
+
 
 // ✅ Prevent model overwrite error
 const Analysis =
@@ -23,3 +36,5 @@ const Analysis =
   mongoose.model("analysis", analysisSchema);
 
 export default Analysis;
+
+
